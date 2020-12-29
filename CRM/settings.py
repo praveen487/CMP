@@ -26,7 +26,7 @@ SECRET_KEY = '7ff=qto59ci82z(*-&1i(@3^7(^%99vh4v0yyxhkdd!l2wi)=8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['cmp.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['cmpliv.herokuapp.com','127.0.0.1']
 
 
 # Application definition
