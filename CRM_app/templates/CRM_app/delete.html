@@ -1,0 +1,22 @@
+{% extends 'CRM_app/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card card-body">
+
+      <p>Are you want to delete this "{{ item }}"</p>
+      <form action="{% url 'deleteOrder' item.id %}" method="POST">
+        {% csrf_token %}
+        <a class="btn btn-info btn-sm" href="{% url 'Home' %}">Cancel</a>
+        <input class="btn btn-danger btn-sm" type="submit" name="" value="confirm">
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

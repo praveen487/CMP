@@ -1,0 +1,24 @@
+{% extends 'CRM_app/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+  <div class="col-md-5">
+    <div class="card card-body">
+
+      <form method="post">
+          {% csrf_token %}
+          {{ formset.management_form }}
+          {% for form in formset %}
+            {{ form }}
+            <hr>
+          {% endfor %}
+          <a class="btn btn-info btn-sm " href="{% url 'Home' %}">Cancel</a>
+          <input class="btn btn-primary btn-sm" type="submit" name="Submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

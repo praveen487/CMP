@@ -1,0 +1,40 @@
+{% load static %}
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a href="{% url 'Home' %}"> <img src="{% static 'image/logo.png' %}" width="75" alt=""></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if request.user.is_staff %}
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'Home' %}">Dashboard</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'product' %}">Products</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'account' %}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'user-page' %}">Your Order</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+
+<span class="hello-msg"> <a class="btn btn-outline-info" href="{% url 'account' %}"><i>Hello {{request.user}}</i></a> </span>
+<samp> <a class="btn btn-outline-info hello-msg" href="{% url 'logout' %}">Logout</a> </samp>
+</nav>
